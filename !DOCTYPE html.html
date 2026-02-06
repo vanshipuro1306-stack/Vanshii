@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pranayyy🎀💗</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef7);
+      color: #8b0033;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* 🌸 Floating background hearts + flowers */
+    .bg-float {
+      position: fixed;
+      top: -20px;
+      font-size: 1.5em;
+      animation: floatBg 12s linear infinite;
+      pointer-events: none;
+      opacity: 0.25;
+      z-index: -2;
+    }
+
+    @keyframes floatBg {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+      100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: #ff5fa2;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 95, 162, 0.4);
+      transition: transform 0.2s, background 0.2s;
+      position: relative;
+    }
+
+    .btn:hover {
+      background: #ff2f87;
+      transform: scale(1.05);
+    }
+
+    .quiz-card {
+      background: #ffe1ef;
+      padding: 20px;
+      border-radius: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(255, 95, 162, 0.3);
+    }
+
+    .quiz-option {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 18px;
+      background: white;
+      border-radius: 20px;
+      width: 90%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: 2px solid #ffb3d1;
+    }
+
+    .quiz-option:hover {
+      background: #ffc1dd;
+      transform: scale(1.03);
+    }
+
+    .response {
+      margin-top: 15px;
+      font-style: italic;
+      color: #b3004b;
+      font-size: 1.1em;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 1.5em;
+      animation: floatUp 4s linear infinite;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 400px;
+      height: 120px;
+      border-radius: 15px;
+      border: 2px solid #ffb3d1;
+      padding: 12px;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 1em;
+      outline: none;
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+
+<body>
+
+
+<audio id="bgMusic" loop>
+  <source src="bg-music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="musicOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#ffeef7;display:flex;align-items:center;justify-content:center;z-index:1000;">
+  <button class="btn" onclick="startMusic()">Tap to start the magic 🎶💗</button>
+</div>
+
+<script>
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.4;
+  music.play();
+  
+  // Remove overlay
+  document.getElementById('musicOverlay').remove();
+}
+</script>
+
+<!-- 💗 Page 1 -->
+<div class="page active" id="page1">
+  <h1>Heyyyy Handsomeeee 💗</h1>
+  <p>How are you?</p>
+  <p>You’re so cute heheheee, you make my heart flutter 🥺✨</p>
+  <p>Umm I wanna say something…</p>
+  <button class="btn" onclick="nextPage()">Tell meee 👀</button>
+</div>
+
+<!-- 💗 Page 2 -->
+<div class="page" id="page2">
+  <h2>I feel a certain way for you👉🏻👈🏻 </h2>
+  <p>
+   You have this way of doing the smallest things that end up meaning the most to me. </p> <p> The way you talk to me, tease me, and stay soft with me makes my heart feel all warm and silly. When I get ready and you notice me, or say something sweet in that effortless way of yours, I swear my heart floats straight to cloud nine.</p> <p> I catch myself smiling at my phone, laughing at your little things, feeling butterflies for no big reason other than the fact that it’s you. With you, my heart feels light, happy, and a little fluttery, like it’s constantly smiling without even trying.
+  </p>
+  <button class="btn" onclick="nextPage()">This is making me smile 😳</button>
+</div>
+
+<!-- 💗 Page 3 -->
+<div class="page" id="page3">
+  <h2>Long distance, same moon 🌙</h2>
+  <p>
+ 
+    Miles apart, under different skies, we still look up at the same moon and somehow, that makes everything feel closer.<br>
+    Talking under the 11:11 moon — making wishes, making us magical ✨
+  </p>
+ 
+  <button class="btn" onclick="nextPage()">You're cute vanshiiiii 🥹</button>
+</div>
+
+<!-- 💗 Page 4 – Quiz -->
+<div class="page" id="page4">
+  <h2>Okay Pranay… mini heart quiz 💌</h2>
+  <p>Tap what feels right 😌</p>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <p><strong>1. When I think of you, my heart goes…</strong></p>
+    <div class="quiz-option" onclick="showResponse(1, 1)">Like a garden of buttahfliesss 💓</div>
+    <div class="quiz-option" onclick="showResponse(1, 2)">Calm and safe, like I’m home 🤍</div>
+    <div class="quiz-option" onclick="showResponse(1, 3)">And thenn pyaari si smile lingering on my lips🤭🤭💗</div>
+    <div class="response" id="response1"></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <p><strong>2. If I could hug you right now, I would…</strong></p>
+    <div class="quiz-option" onclick="showResponse(2, 1)">Never let go, sorry not sorry 🥺</div>
+    <div class="quiz-option" onclick="showResponse(2, 2)">Rest my head on your chest and smile 😌</div>
+    <div class="quiz-option" onclick="showResponse(2, 3)">Spin you around because I’m too happy 🤭</div>
+    <div class="response" id="response2"></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <p><strong>3. You are tough for everyone but for me you’re…</strong></p>
+    <div class="quiz-option" onclick="showResponse(3, 1)">Soft, warm, and only mine 🥹</div>
+    <div class="quiz-option" onclick="showResponse(3, 2)">My safe place in human form 🤍</div>
+    <div class="quiz-option" onclick="showResponse(3, 3)">That one smile I’d protect forever 😌</div>
+    <div class="response" id="response3"></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <p><strong>4. Under the 11:11 moon, I secretly wish for…</strong></p>
+    <div class="quiz-option" onclick="showResponse(4, 1)">You, me, same city, same pillow 🌙😌</div>
+    <div class="quiz-option" onclick="showResponse(4, 2)">A lifetime of calls turning into cuddles 🥺</div>
+    <div class="quiz-option" onclick="showResponse(4, 3)">Our forever starting a little sooner 💗</div>
+    <div class="response" id="response4"></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <p><strong>5. If loving you was a job, I would be…</strong></p>
+    <div class="quiz-option" onclick="showResponse(5, 1)">The highest paid employee fs 🏆😌</div>
+    <div class="quiz-option" onclick="showResponse(5, 2)">Promted to a higher level everyday 💗</div>
+    <div class="quiz-option" onclick="showResponse(5, 3)">Working overtime happily forever 🥹</div>
+    <div class="response" id="response5"></div>
+  </div>
+
+  <!-- Q6 – Chilgozis 😌 -->
+  <div class="quiz-card">
+    <p><strong>6. About those chilgozis around you… 👀😌</strong></p>
+    <div class="quiz-option" onclick="showResponse(6, 1)">Let them admire, you’re already mine 💅💗</div>
+    <div class="quiz-option" onclick="showResponse(6, 2)">I’ll smile sweetly… while holding your hand tighter 🤭🤍</div>
+    <div class="quiz-option" onclick="showResponse(6, 3)">All good, because you come home to ME 😌✨</div>
+    <div class="response" id="response6"></div>
+  </div>
+
+  <button class="btn" onclick="nextPage()">Please get coming</button>
+</div>
+
+<!-- 💗 Page 5 – Final Ask -->
+<div class="page" id="page5">
+  <h2>Pranayyy, 🎀</h2>
+
+  <p>
+    I wasn’t a lover girl,<br>
+    but you changed that slowly, gently, beautifully.<br><br>
+    No doubt, I know your feet are bigger than mine,<br> your arms are stronger, your shoulders broader, and you’re definitely taller<br> but I 
+promise my heart isn't smaller🥹 <br>
+    You make my heart smile in ways I never knew existed.<br>
+    And honestly… I’d be the luckiest girl in the world with you around me 🥹✨
+  </p><p> So this me being a little brave and a lot honest, asking you in the most timid way with a lot of blush on the cheeks🙈</p>
+
+
+  <p style="font-size: 1.4em; font-weight: bold;">
+   So PRANAY MAHESHWARI,</P> <P>Would you give me this honor and be mine?</p>
+ <P> BE MY VALENTINE? 🥹🫶🏻
+  </p>
+
+  <button class="btn" id="yesBtn" onclick="yesResponse()">YES 😭💗</button>
+  <button class="btn" id="noBtn" onmouseover="moveNoButton()">Let me think 🤭</button>
+
+  <div class="response" id="finalResponse"></div>
+
+  <canvas id="confetti"></canvas>
+</div>
+
+<!-- 💗 Page 6 – Yay Page -->
+<div class="page" id="page6">
+  <h2>Yayyyy 😭💖</h2>
+  <p>
+    You just made me the happiest girl alive 🥹✨
+  </p> <P> I love you babyyyy, I'll always do my best to keep you smile hehe </P>
+  <button class="btn" onclick="nextPage()">Now it’s your turn 😌💌</button>
+</div>
+
+<!-- 💗 Page 7 – His Response Page -->
+<div class="page" id="page7">
+  <h2>Write something for me 💗</h2>
+  <p>I’ll read this and keep it forever 🥹✨</p>
+  <textarea id="hisMessage" placeholder="Type your message here... 💌"></textarea>
+  <br>
+  <button class="btn" onclick="saveMessage()">Send 💖</button>
+  <div class="response" id="savedMessage"></div>
+</div>
+
+<script>
+  let currentPage = 1;
+
+  function nextPage() {
+    document.getElementById("page" + currentPage).classList.remove("active");
+    currentPage++;
+    document.getElementById("page" + currentPage).classList.add("active");
+  }
+
+  function showResponse(question, option) {
+    const responses = {
+      1: {
+        1: "Same 😭💓 my heart literally does dhak dhak just for you.",
+        2: "That’s exactly how you feel — home 🤍",
+        3: "A little crazy, fully in love with you 😌💗"
+      },
+      2: {
+        1: "Not letting go. Ever. Deal with it 🥺🤍",
+        2: "That sounds like heaven honestly 😌💗",
+        3: "I’d laugh so hard and fall more in love 🤭"
+      },
+      3: {
+        1: "Only mine, forever mine 🥹💗",
+        2: "You really are my safe place 🤍",
+        3: "And I’d protect that smile with my life 😌"
+      },
+      4: {
+        1: "Manifesting this so hard 🌙✨",
+        2: "Calls turning into cuddles — yes please 🥺💗",
+        3: "Our forever is already written 😌💖"
+      },
+      5: {
+        1: "Promotion incoming 😌🏆",
+        2: "I’d proudly join that fan club 💗",
+        3: "Overtime for you? Always 🥹✨"
+      },
+      6: {
+        1: "As you should 😌💗 because you’re already mine.",
+        2: "Hand-holding + side-eye combo activated 🤭✨",
+        3: "Exactly — they look, I get you 😌💖"
+      }
+    };
+
+    document.getElementById("response" + question).innerText =
+      responses[question][option];
+  }
+
+  function moveNoButton() {
+    const noBtn = document.getElementById("noBtn");
+    const page = document.getElementById("page5");
+    const maxX = page.clientWidth - noBtn.offsetWidth;
+    const maxY = page.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+  }
+
+  function yesResponse() {
+    nextPage();
+    startConfetti();
+    createHearts();
+  }
+
+  function saveMessage() {
+    const msg = document.getElementById("hisMessage").value;
+    if (!msg.trim()) return;
+
+    localStorage.setItem("pranayMessage", msg);
+    document.getElementById("savedMessage").innerHTML =
+      "Message saved in my heart forever 💗🥹<br><br><strong>" + msg + "</strong>";
+  }
+
+  // Load saved message if exists
+  window.onload = function () {
+    const saved = localStorage.getItem("pranayMessage");
+    if (saved) {
+      document.getElementById("hisMessage").value = saved;
+      document.getElementById("savedMessage").innerHTML =
+        "Saved message 💗🥹<br><br><strong>" + saved + "</strong>";
+    }
+  };
+
+  // Floating hearts
+  function createHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 300);
+  }
+
+  // 🌸 Floating background hearts + flowers
+  setInterval(() => {
+    const bg = document.createElement("div");
+    bg.classList.add("bg-float");
+    bg.innerText = Math.random() > 0.5 ? "💗" : "🌸";
+    bg.style.left = Math.random() * 100 + "vw";
+    bg.style.animationDuration = 10 + Math.random() * 8 + "s";
+    document.body.appendChild(bg);
+
+    setTimeout(() => {
+      bg.remove();
+    }, 18000);
+  }, 600);
+
+  // Confetti
+  function startConfetti() {
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confettiPieces = Array.from({ length: 150 }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 20 + 10,
+      color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+      tilt: Math.random() * 10 - 10,
+      tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+      tiltAngle: 0
+    }));
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach(p => {
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+        ctx.stroke();
+      });
+      update();
+      requestAnimationFrame(draw);
+    }
+
+    function update() {
+      confettiPieces.forEach(p => {
+        p.tiltAngle += p.tiltAngleIncrement;
+        p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+        p.x += Math.sin(p.d);
+        p.tilt = Math.sin(p.tiltAngle) * 15;
+
+        if (p.y > canvas.height) {
+          p.y = -20;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    draw();
+  }
+</script>
+
+</body>
+</html>
